@@ -1,0 +1,241 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}}
+{\*\generator Riched20 10.0.17763}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\qc\f0\fs24\lang9                                                                                                                   Date:13/06/2019                                                                 \ul\fs40\par
+\par
+Java Code Conventions\ulnone                \ul\par
+\ulnone\par
+
+\pard\sa200\sl276\slmult1\b\fs24 Coding conventions \b0 are a set of guidelines for a specific programming language that recommend programming style, practices, and methods for each aspect of a program written in that language... Coding conventions are only applicable to the human maintainers and peer reviewers of a software project.\fs40\par
+\b\fs24\par
+\fs28 why Code Conventions?\par
+
+\pard\sa200\sl240\slmult1\b0\f1\fs24\bullet  80% of the lifetime cost of a piece of software goes to maintenance.\par
+\bullet  Hardly any software is maintained for its whole life by the original author.\par
+\bullet  Code conventions improve the readability of the software, allowing engineers to\par
+understand new code more quickly and thoroughly.\par
+\bullet  If you ship your source code as a product, you need to make sure it is as well packaged\par
+and clean as any other product you create.\par
+
+\pard\sa200\sl276\slmult1\par
+
+\pard\sa200\sl240\slmult1\b\f0\fs28\lang1033 File Names\par
+\fs40\lang9 -\fs24 file suffix:\par
+File Type              Suffix\par
+\b0 Java source           .java\par
+Java bytecode       .class \par
+\par
+\b -Common File Names\par
+File Name               Use\par
+\b0 GNUmakefile          The preferred name for makefiles.\par
+                                We use gnumake to build our software.\par
+ README                 The preferred name for the file that summarizes the\par
+                                contents of a particular directory.\par
+\fs28\par
+\b Comments\b0\par
+\fs24 All source files should begin with a c-style comment that lists the programmer(s), the date, a\par
+copyright notice, and also a brief description of the purpose of the program. For example:\par
+/*\par
+ * Classname\par
+ * Version info\par
+ * Copyright notice\par
+ */\par
+\b\fs28\par
+Declarations\par
+Number Per Line\fs24\par
+\b0 One declaration per line is recommended since it encourages commenting. In other words,\b\par
+int level; // indentation level\par
+int size; // size of table\par
+is preferred over\par
+int level, size;\par
+\fs28\par
+Placement\b0\par
+\fs24 Put declarations only at the beginning of blocks. (A block is any code surrounded by curly\par
+braces \ldblquote\{\rdblquote  and \ldblquote\}\rdblquote .) Don\rquote t wait to declare variables until their first use; it can confuse the\par
+unwary programmer and hamper code portability within the scope.\par
+\b void MyMethod() \{\par
+ int int1; // beginning of method block\par
+ if (condition) \{\par
+ int int2; // beginning of "if" block\par
+ ...\par
+ \}\par
+\}\par
+\b0\fs28\par
+\b Indentation\b0\par
+\fs24 Four spaces should be used as the unit of indentation. The exact construction of the indentation\par
+(spaces vs. tabs) is unspecified. Tabs must be set exactly every 8 spaces (not 4).\par
+\fs28\par
+\b Package and Import Statements\b0\par
+\fs24 The first non-comment line of most Java source files is a package statement. After that,\par
+import statements can follow. For example:\par
+package java.awt;\par
+import java.awt.peer.CanvasPeer;\par
+\b\line\fs28 Statements\b0\fs24\par
+\b\fs28 Simple Statements\b0\fs24\par
+Each line should contain at most one statement. Example:\par
+argv++; argc--; // AVOID!\par
+\par
+\b\fs28 return Statements\fs24\par
+\b0 A return statement with a value should not use parentheses unless they make the return value\par
+more obvious in some way. Example:\par
+return;\par
+return myDisk.size();\par
+return (size ? size : defaultSize);\par
+\fs28\par
+\b if, if-else, if-else-if-else Statements\par
+
+\pard\sl240\slmult1\b0\fs24 The if-else class of statements should have the following form:\par
+if (condition) \{\par
+statements;\par
+\}\par
+if (condition) \{\par
+statements;\par
+\} else \{\par
+statements;\par
+\}\par
+if (condition) \{\par
+statements;\par
+\} else if (condition) \{\par
+statements;\par
+\} else if (condition) \{\par
+statements;\par
+\}\par
+
+\pard\sa200\sl240\slmult1\b\fs28\par
+for Statements\par
+\b0\fs24 A for statement should have the following form:\par
+for (initialization; condition; update) \{\par
+statements;\par
+\}\par
+\par
+\b\fs28 while Statements\b0\fs24\par
+A while statement should have the following form:\par
+while (condition) \{\par
+statements;\par
+\}\par
+\b\fs28 do-while Statements\b0\fs24\par
+A do-while statement should have the following form:\par
+
+\pard\sl240\slmult1 do \{\par
+statements;\par
+\} while (condition);\par
+switch Statements\par
+A switch statement should have the following form:\par
+switch (condition) \{\par
+case ABC:\par
+statements;\par
+ /* falls through */\par
+case DEF:\par
+statements;\par
+ break;\par
+case XYZ:\par
+statements;\par
+ break;\par
+default:\par
+statements;\par
+ break;\par
+\par
+\b\fs28 try-catch Statements\par
+\b0\fs24\par
+A try-catch statement should have the following format:\par
+try \{\par
+statements;\par
+\} catch (ExceptionClass e) \{\par
+statements;\par
+\}\par
+
+\pard\sa200\sl240\slmult1\b\par
+\fs28 Naming Conventions for Classes,Interfaces,Method,Variables and\par
+Constants\par
+Classes: \b0 Class names should be nouns, in mixed case with the first letter of each internal word capitalized. Try to keep your class names simple and descriptive. Use whole words\f1\emdash avoid\f0\lang1033  \f1\lang9 acronyms and abbreviations\par
+\f0\lang1033 ex: class Raster;\par
+      class ImageSprite;\par
+\b\lang9\par
+Interfaces:\b0 Interface names should be capitalized like class names.\par
+ex:interface RasterDelegate;\par
+      interface Storing;\par
+\b\par
+Method:\b0 Methods should be verbs, in mixed case with the first letter lowercase, with the first letter of each internal word capitalized.\par
+ex: run();\par
+      runFast();\par
+      getBackground();\par
+\b\par
+Variables:\b0 Except for variables, all instance, class, and class constants are in mixed case with a lowercase first letter. Internal words start with capital letters.\par
+ex:int i;\par
+     char *cp;\par
+     float myWidth;\par
+\b Constants: \b0 The names of variables declared class constants and of ANSI constants should be all\par
+uppercase with words separated by underscores (\ldblquote _\rdblquote ). (ANSI constants should be avoided, for ease of debugging.)\par
+ex:int MIN_WIDTH = 4;\par
+      int MAX_WIDTH = 999;\par
+      int GET_THE_CPU = 1;\par
+\b\par
+Java Source File Example\b0\fs24\par
+The following example shows how to format a Java source file containing a single public class,Interfaces are formatted similarly.\par
+
+\pard\sl240\slmult1 /*\par
+ * %W% %E% Firstname Lastname\par
+ *\par
+ * Copyright (c) 1993-1996 Sun Microsystems, Inc. All Rights Reserved.\par
+ *\par
+ * This software is the confidential and proprietary information of Sun\par
+ * Microsystems, Inc. ("Confidential Information"). You shall not\par
+ * disclose such Confidential Information and shall use it only in\par
+ * accordance with the terms of the license agreement you entered into\par
+ * with Sun.\par
+ *\par
+ * SUN MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF\par
+ * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\par
+ * TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\par
+ * PARTICULAR PURPOSE, OR NON-INFRINGEMENT. SUN SHALL NOT BE LIABLE FOR\par
+ * ANY DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR\par
+ * DISTRIBUTING THIS SOFTWARE OR ITS DERIVATIVES.\par
+ */\par
+package java.blah;\par
+import java.blah.blahdy.BlahBlah;\par
+/**\par
+ * Class description goes here.\par
+ *\par
+ * @version 1.10 04 Oct 1996\par
+ * @author Firstname Lastname\par
+ */\par
+public class Blah extends SomeClass \{\par
+ /* A class implementation comment can go here. */\par
+ /** classVar1 documentation comment */\par
+ public static int classVar1;\par
+ /*** classVar2 documentation comment that happens to be\par
+ * more than one line long\par
+ */\par
+ private static Object classVar2;\par
+ /** instanceVar1 documentation comment */\par
+ public Object instanceVar1;\par
+ /** instanceVar2 documentation comment */\par
+ protected int instanceVar2;\par
+ /** instanceVar3 documentation comment */\par
+ private Object[] instanceVar3;\par
+11 - Code Examples\par
+20\par
+ /**\par
+ * ...method Blah documentation comment...\par
+ */\par
+ public Blah() \{\par
+ // ...implementation goes here...\par
+ \}\par
+ /**\par
+ * ...method doSomething documentation comment...\par
+ */\par
+ public void doSomething() \{\par
+ // ...implementation goes here...\par
+ \}\par
+ /**\par
+ * ...method doSomethingElse documentation comment...\par
+ * @param someParam description\par
+ */\par
+ public void doSomethingElse(Object someParam) \{\par
+ // ...implementation goes here...\par
+ \}\par
+\}\par
+
+\pard\sa200\sl240\slmult1\par
+\fs40\par
+}
+ 
