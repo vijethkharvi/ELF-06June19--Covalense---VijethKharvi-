@@ -1,7 +1,7 @@
 package com.covalense.javaapp.demoinherit;
 
-public class Marker extends Pen{
-void color() {
-	
-}
+public class Marker extends Pen {
+	void color() {
+
+	}
 }

@@ -1,11 +1,15 @@
 package com.covalense.javaapp.passingobject;
 
+import lombok.extern.java.Log;
+
+@Log
 public class Chips {
 	void open() {
-		System.out.println("open chips");
+		log.info("open chips");
 	}
+
 	void eat() {
-		System.out.println("eat chips");
+		log.info("eat chips");
 	}
 
 }

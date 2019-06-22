@@ -1,7 +1,10 @@
 package com.covalense.javaapp.hasarelationshipone;
 
+import lombok.extern.java.Log;
+
+@Log
 public class Mobile {
-void call() {
-	System.out.println("calling");
-}
+	void call() {
+		log.info("calling");
+	}
 }

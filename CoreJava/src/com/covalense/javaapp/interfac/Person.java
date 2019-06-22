@@ -1,13 +1,15 @@
 package com.covalense.javaapp.interfac;
 
-public class Person implements Animal,Human{
-	
-public void walk() {
-	System.out.println("waliking");
-}
+import lombok.extern.java.Log;
 
+@Log
+public class Person implements Animal, Human {
 
-public void eat() {
-	System.out.println("eat");
-}
+	public void walk() {
+		log.info("waliking");
+	}
+
+	public void eat() {
+		log.info("eat");
+	}
 }

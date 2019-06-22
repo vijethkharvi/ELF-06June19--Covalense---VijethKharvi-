@@ -1,15 +1,18 @@
 package com.covalense.javaapp.abstraction.bank;
 
+import lombok.extern.java.Log;
+
+@Log
 public class Canara implements ATMCard {
 
 	@Override
 	public void validate() {
-System.out.println("canara bank validation");
+		log.info("canara bank validation");
 	}
 
 	@Override
 	public void getInfo() {
-System.out.println("canara bank information");
+		log.info("canara bank information");
 	}
 
 }

@@ -1,7 +1,10 @@
 package com.covalense.javaapp.abstraction.one;
 
-public class Honda extends Hero{
-void design() {
-	System.out.println("im design method");
-}
+import lombok.extern.java.Log;
+
+@Log
+public class Honda extends Hero {
+	void design() {
+		log.info("im design method");
+	}
 }

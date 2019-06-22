@@ -3,6 +3,8 @@ package com.covalense.javaapp.filehandling;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import lombok.extern.java.Log;
+@Log
 public class CharConv {
 
 	public static void main(String[] args) {
@@ -14,7 +16,7 @@ public class CharConv {
 			fw.write(c);
 			fw.flush();
 			fw.close();
-			System.out.println("Done...!");
+			log.info("Done...!");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

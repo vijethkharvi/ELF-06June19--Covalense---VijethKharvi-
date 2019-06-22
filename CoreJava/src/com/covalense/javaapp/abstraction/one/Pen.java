@@ -1,8 +1,11 @@
 package com.covalense.javaapp.abstraction.one;
 
+import lombok.extern.java.Log;
+
+@Log
 public abstract class Pen extends Pencil {
 	void write() {
-		System.out.println("write method");
+		log.info("write method");
 	}
 
 }

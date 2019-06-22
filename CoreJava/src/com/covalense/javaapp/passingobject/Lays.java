@@ -1,11 +1,15 @@
 package com.covalense.javaapp.passingobject;
 
+import lombok.extern.java.Log;
+
+@Log
 public class Lays extends Chips {
 	void open() {
-		System.out.println("open lays");
+		log.info("open lays");
 	}
+
 	void eat() {
-		System.out.println("eat lays");
+		log.info("eat lays");
 	}
 
 }

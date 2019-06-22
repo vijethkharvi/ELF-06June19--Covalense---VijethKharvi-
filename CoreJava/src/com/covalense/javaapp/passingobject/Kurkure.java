@@ -1,12 +1,15 @@
 package com.covalense.javaapp.passingobject;
 
-public class Kurkure extends Chips{
+import lombok.extern.java.Log;
+
+@Log
+public class Kurkure extends Chips {
 	void open() {
-		System.out.println("open kurkure");
-	}
-	void eat() {
-		System.out.println("eat kurkure");
+		log.info("open kurkure");
 	}
 
+	void eat() {
+		log.info("eat kurkure");
+	}
 
 }

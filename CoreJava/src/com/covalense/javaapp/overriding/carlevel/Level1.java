@@ -1,7 +1,10 @@
 package com.covalense.javaapp.overriding.carlevel;
 
+import lombok.extern.java.Log;
+
+@Log
 public class Level1 {
-void speed() {
-	System.out.println("speed is 0-100km");
-}
+	void speed() {
+		log.info("speed is 0-100km");
+	}
 }

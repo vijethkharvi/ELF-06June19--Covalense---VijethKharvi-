@@ -1,7 +1,10 @@
 package com.covalense.javaapp.multilevel;
 
+import lombok.extern.java.Log;
+
+@Log
 public class Cow extends Animal {
-void walk() {
-	System.out.println("im cow");
-}
+	void walk() {
+		log.info("im cow");
+	}
 }

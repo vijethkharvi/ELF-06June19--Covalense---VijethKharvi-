@@ -1,8 +1,12 @@
 package com.covalense.javaapp.demoinherit;
 
+import lombok.extern.java.Log;
+
+@Log
 public class Pen extends Parent {
-int cost;
-void write() {
-	System.out.println("this is pen");
-}
+	int cost;
+
+	void write() {
+		log.info("this is pen");
+	}
 }

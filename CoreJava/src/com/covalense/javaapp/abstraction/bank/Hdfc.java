@@ -1,11 +1,15 @@
 package com.covalense.javaapp.abstraction.bank;
 
+import lombok.extern.java.Log;
+
+@Log
 public class Hdfc implements ATMCard {
 	public void validate() {
-		System.out.println("HDFC validation");
+		log.info("HDFC validation");
 	}
+
 	public void getInfo() {
-		System.out.println("HDFC get information");
+		log.info("HDFC get information");
 	}
 
 }

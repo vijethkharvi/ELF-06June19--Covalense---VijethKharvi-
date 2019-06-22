@@ -1,10 +1,14 @@
 package com.covalense.javaapp.abstraction.bank;
 
-public class Icici implements ATMCard{
-public void validate() {
-	System.out.println("ICICI bank validation");
-}
-public void getInfo() {
-	System.out.println("ICICI bank information");
-}
+import lombok.extern.java.Log;
+
+@Log
+public class Icici implements ATMCard {
+	public void validate() {
+		log.info("ICICI bank validation");
+	}
+
+	public void getInfo() {
+		log.info("ICICI bank information");
+	}
 }
