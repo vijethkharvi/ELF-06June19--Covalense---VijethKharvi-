@@ -7,13 +7,13 @@ import com.mysql.jdbc.Driver;
 import lombok.extern.java.Log;
 
 @Log
-public final class MyFirstJdbcProgram {
+public final class PreparedStatementExampleTwo {
 	public static void main(String[] args) {
 
-		MyFirstJdbcProgram ref = new MyFirstJdbcProgram();
+		PreparedStatementExampleTwo ref = new PreparedStatementExampleTwo();
 
 		Connection con = null;
-		Statement stmt = null;
+		PreparedStatement stmt = null;
 		ResultSet rs = null;
 
 		// 1. load the "Driver"
@@ -35,12 +35,11 @@ public final class MyFirstJdbcProgram {
 			String dbUrl = "jdbc:mysql://localhost:3306/covalense_db";
 			con = DriverManager.getConnection(dbUrl, "root", "root");
 
-			log.info("connection impl class====>" + con.getClass());
-
 			// 3.issue "sql querrys" via "connection
-			String query = "select * from employee_info";
-			stmt = con.createStatement();
-			rs = stmt.executeQuery(query);
+			String query = "select * from employee_info where id=?";
+			stmt = con.prepareStatement(query);
+			stmt.setInt(1, Integer.parseInt(args[0]));
+			rs = stmt.executeQuery();
 
 			// 4."process the results" returning by "sql querrys"
 			while (rs.next()) {
