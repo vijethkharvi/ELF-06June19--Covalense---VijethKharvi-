@@ -1,4 +1,4 @@
-package com.covaslense.jdbcapp;
+package com.covalense.javaapp.jdbc.connectionpool;
 
 import java.sql.*;
 
@@ -7,10 +7,10 @@ import com.mysql.jdbc.Driver;
 import lombok.extern.java.Log;
 
 @Log
-public final class MyFirstJdbcProgram {
+public final class ConnectionPoolTest {
 	public static void main(String[] args) {
 
-		MyFirstJdbcProgram ref = new MyFirstJdbcProgram();
+		ConnectionPoolTest ref = new ConnectionPoolTest();
 
 		Connection con = null;
 		Statement stmt = null;
@@ -22,21 +22,11 @@ public final class MyFirstJdbcProgram {
 		 * DriverManager.registerDriver(driver);
 		 * 
 		 */
+		ConnectionPool pool=null;
 		try {
-
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
-
-			// 2. get the db connection via driver
-			/*
-			 * String dbUrl =
-			 * "jdbc:mysql://192:168:43:75:3306/techchefs?user=root&password=root"; con =
-			 * DriverManager.getConnection(dbUrl);
-			 */
-			String dbUrl = "jdbc:mysql://localhost:3306/covalense_db";
-			con = DriverManager.getConnection(dbUrl, "root", "root");
-
-			log.info("connection impl class====>" + con.getClass());
-
+			pool=ConnectionPool.getConnectioPool();
+			con=pool.getConnectionFromPool();
+		
 			// 3.issue "sql querrys" via "connection
 			String query = "select * from employee_info";
 			stmt = con.createStatement();
@@ -45,8 +35,10 @@ public final class MyFirstJdbcProgram {
 			// 4."process the results" returning by "sql querrys"
 			while (rs.next()) {
 
-				log.info("id            =====>" + rs.getInt("ID"));
-				log.info("name          =====>" + rs.getString("NAME"));
+				/*log.info("id            =====>" + rs.getInt("ID"));
+				log.info("name          =====>" + rs.getString("NAME"));*/
+				log.info("id            =====>" + rs.getInt(1));
+				log.info("name          =====>" + rs.getString(2));
 				log.info("age           =====>" + rs.getInt("AGE"));
 				log.info("gender        =====>" + rs.getString("GENDER"));
 				log.info("salary        =====>" + rs.getDouble("SALARY"));
@@ -61,14 +53,15 @@ public final class MyFirstJdbcProgram {
 
 			}
 
-		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			// 5.close all "jdbc objects"
 			try {
-				if (con != null) {
+				pool.returnConnectionToPool(con);
+				/*if (con != null) {
 					con.close();
-				}
+				}*/
 				if (stmt != null) {
 					stmt.close();
 				}
