@@ -1,0 +1,36 @@
+/* h1{
+    color: bl ue;
+} */
+{
+
+}
+.vijeth{
+    background: blue;
+}
+#paragraph{
+    color: chartreuse;
+    font-family: 'Oswald', sans-serif;
+}
+input[type="text"]{
+    font-size: 30px;
+    display: block;
+}
+#box1{
+    background:blanchedalmond;
+    padding: 30px;
+}
+#inner1{
+height:50px;
+background:yellow;
+float: left;
+width: 40%;
+margin: 10px,10px,10px,10px;
+
+}
+#inner2{
+height:50px;
+background:red;
+}
+body{
+margin: 0px;
+}
