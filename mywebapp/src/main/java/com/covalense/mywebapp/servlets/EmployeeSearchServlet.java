@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.covalense.mywebapp.beans.EmployyeBeanJava;
+import com.covalense.mywebapp.dao.EmployeeDAO;
 import com.covalense.mywebapp.dao.EmployeeDAOFactory;
 @WebServlet(urlPatterns="/search",initParams= {@WebInitParam(name="actress",value="basanthi")})
 public class EmployeeSearchServlet extends HttpServlet {
@@ -31,7 +32,7 @@ public class EmployeeSearchServlet extends HttpServlet {
 		
 		
 		// interact with db &emp info
-		com.covalense.mywebapp.dao.EmployeeDAO dao = EmployeeDAOFactory.getInstance();
+		EmployeeDAO dao = EmployeeDAOFactory.getInstance();
 		EmployyeBeanJava bean = dao.getEmployeeInfo(idValue);
 
 		// send response to browser

@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 import lombok.Data;
 
 @Data
@@ -54,5 +53,7 @@ public class EmployyeBeanJava implements Serializable {
 
 	@Column(name = "manager_id")
 	private int managerId;
+
+	
 
 }

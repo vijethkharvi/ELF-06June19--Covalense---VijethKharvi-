@@ -4,24 +4,25 @@ import java.io.FileInputStream;
 import java.util.Properties;
 
 public class PropertyUtil {
-private static PropertyUtil getPropertyUtil() {
-private static PropertyUtil=null;
-Properties properties=null;
+	private static PropertyUtil propUtil = null;
+	Properties properties = null;
 
-public static PropertyUtil getPropertyUtil()  {
-	if(util==null) {
-		util=new PropertyUtil();
-	}return util;
-}
-private PropertyUtil() {
-	properties=new Properties();
-	properties.load(new FileInputStream("db.properties"));
-	
-}
-public String getProperty(String key) {
-	return
-	
-}
+	public static PropertyUtil getPropertyUtil() {
+		if (propUtil == null) {
+			return new PropertyUtil();
+		}
+		return propUtil;
+	}
+
+	private PropertyUtil() throws Exception {
+		properties = new Properties();
+		properties.load(new FileInputStream("db.properties"));
 
 	}
+
+	public String getProperty(String key) {
+		return properties.getProperty(key);
+
+	}
+
 }
