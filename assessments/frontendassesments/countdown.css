@@ -1,0 +1,16 @@
+header {
+    background-color: #666;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+  }
+  div {
+    text-align: center;
+    float: inherit;
+    padding: 100px;
+    width: 100%;
+    background-color: #f1f1f1;
+    height: 300px; /* only for demonstration, should be removed */
+  }
+ 
